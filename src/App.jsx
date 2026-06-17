@@ -30,16 +30,6 @@ function writeStorage(value) {
   }
 }
 
-function clearStorage() {
-  try {
-    if (typeof window !== "undefined" && window.localStorage) {
-      window.localStorage.removeItem(STORAGE_KEY);
-    }
-  } catch {
-    // Local demo can continue without persistent storage.
-  }
-}
-
 function loadAssessments() {
   const saved = readStorage();
   return saved ? JSON.parse(saved) : initialAssessments;
@@ -88,17 +78,9 @@ export default function App() {
     setAssessments((current) => [...current, newAssessment]);
   }
 
-  function resetDemo() {
-    setAssessments(initialAssessments);
-    setSelectedId(students[0].id);
-    setScores(createDefaultScores(students[0].id, initialAssessments));
-    setNotes("");
-    clearStorage();
-  }
-
   return (
     <div className="min-h-screen bg-[#f6faf7] soft-grid">
-      <Header onReset={resetDemo} />
+      <Header />
       <main className="mx-auto grid max-w-7xl gap-5 px-4 py-6 lg:grid-cols-[340px_1fr]">
         <StudentList
           students={students}
