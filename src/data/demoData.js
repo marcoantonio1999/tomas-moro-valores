@@ -1,38 +1,38 @@
 export const valuesCatalog = [
   {
-    key: "respeto",
-    label: "Respeto",
-    short: "RES",
+    key: "asistencia",
+    label: "Asistencia",
+    short: "ASI",
     fontClass: "font-respect",
-    description: "Escucha, cuida el lenguaje y trata bien a companeros, coaches y rivales."
-  },
-  {
-    key: "disciplina",
-    label: "Disciplina",
-    short: "DIS",
-    fontClass: "font-discipline",
-    description: "Llega preparado, sigue instrucciones y sostiene habitos dentro y fuera de cancha."
-  },
-  {
-    key: "responsabilidad",
-    label: "Responsabilidad",
-    short: "RSP",
-    fontClass: "font-responsibility",
-    description: "Cumple acuerdos, cuida su material y asume consecuencias sin excusas."
+    description: "Constancia para llegar, participar y mantenerse presente en las actividades del colegio."
   },
   {
     key: "companierismo",
-    label: "Companerismo",
+    label: "Compañerismo",
     short: "COM",
     fontClass: "font-fellowship",
-    description: "Ayuda al equipo, anima a otros y entiende que ganar tambien es colaborar."
+    description: "Ayuda al grupo, integra a otros y entiende que crecer tambien es colaborar."
   },
   {
-    key: "honestidad",
-    label: "Honestidad",
-    short: "HON",
+    key: "esfuerzo",
+    label: "Esfuerzo",
+    short: "ESF",
+    fontClass: "font-responsibility",
+    description: "Da lo mejor de si, intenta mejorar y sostiene el trabajo aunque el reto sea dificil."
+  },
+  {
+    key: "actitud",
+    label: "Actitud",
+    short: "ACT",
+    fontClass: "font-discipline",
+    description: "Muestra disposicion positiva, apertura a corregir y energia constructiva."
+  },
+  {
+    key: "respeto",
+    label: "Respeto",
+    short: "RES",
     fontClass: "font-honesty",
-    description: "Dice la verdad, reconoce faltas y juega limpio aun cuando nadie mira."
+    description: "Escucha, cuida el lenguaje y trata bien a compañeros, maestros y rivales."
   }
 ];
 
@@ -54,7 +54,7 @@ export const initialAssessments = [
     date: "2026-06-03",
     evaluator: "Coach Adrian",
     notes: "Buena disposicion para escuchar y corregir.",
-    scores: { respeto: 92, disciplina: 86, responsabilidad: 88, companierismo: 94, honestidad: 90 }
+    scores: { asistencia: 92, companierismo: 94, esfuerzo: 88, actitud: 86, respeto: 90 }
   },
   {
     id: "a2",
@@ -62,7 +62,7 @@ export const initialAssessments = [
     date: "2026-06-03",
     evaluator: "Coach Adrian",
     notes: "Necesita controlar frustracion cuando pierde el balon.",
-    scores: { respeto: 72, disciplina: 68, responsabilidad: 74, companierismo: 70, honestidad: 82 }
+    scores: { asistencia: 72, companierismo: 70, esfuerzo: 74, actitud: 68, respeto: 82 }
   },
   {
     id: "a3",
@@ -70,7 +70,7 @@ export const initialAssessments = [
     date: "2026-06-03",
     evaluator: "Coach Adrian",
     notes: "Gran actitud de apoyo con ninas nuevas.",
-    scores: { respeto: 89, disciplina: 84, responsabilidad: 87, companierismo: 96, honestidad: 91 }
+    scores: { asistencia: 89, companierismo: 96, esfuerzo: 87, actitud: 84, respeto: 91 }
   },
   {
     id: "a4",
@@ -78,7 +78,7 @@ export const initialAssessments = [
     date: "2026-06-05",
     evaluator: "Coach Daniela",
     notes: "Se distrae en ejercicios largos, pero responde bien al seguimiento.",
-    scores: { respeto: 78, disciplina: 71, responsabilidad: 76, companierismo: 82, honestidad: 80 }
+    scores: { asistencia: 78, companierismo: 82, esfuerzo: 76, actitud: 71, respeto: 80 }
   },
   {
     id: "a5",
@@ -86,7 +86,7 @@ export const initialAssessments = [
     date: "2026-06-05",
     evaluator: "Coach Daniela",
     notes: "Lider positivo en calentamiento y orden del grupo.",
-    scores: { respeto: 90, disciplina: 93, responsabilidad: 91, companierismo: 87, honestidad: 88 }
+    scores: { asistencia: 90, companierismo: 87, esfuerzo: 91, actitud: 93, respeto: 88 }
   },
   {
     id: "a6",
@@ -94,7 +94,7 @@ export const initialAssessments = [
     date: "2026-06-05",
     evaluator: "Coach Daniela",
     notes: "Debe mejorar puntualidad y cuidado de material.",
-    scores: { respeto: 81, disciplina: 66, responsabilidad: 63, companierismo: 79, honestidad: 84 }
+    scores: { asistencia: 81, companierismo: 79, esfuerzo: 63, actitud: 66, respeto: 84 }
   },
   {
     id: "a7",
@@ -102,7 +102,7 @@ export const initialAssessments = [
     date: "2026-06-07",
     evaluator: "Coach Raul",
     notes: "Competitivo y honesto, puede mejorar trato al rival.",
-    scores: { respeto: 69, disciplina: 84, responsabilidad: 86, companierismo: 72, honestidad: 90 }
+    scores: { asistencia: 69, companierismo: 72, esfuerzo: 86, actitud: 84, respeto: 90 }
   },
   {
     id: "a8",
@@ -110,7 +110,7 @@ export const initialAssessments = [
     date: "2026-06-07",
     evaluator: "Coach Raul",
     notes: "Muy constante, ayuda a ordenar al equipo.",
-    scores: { respeto: 94, disciplina: 90, responsabilidad: 92, companierismo: 91, honestidad: 95 }
+    scores: { asistencia: 94, companierismo: 91, esfuerzo: 92, actitud: 90, respeto: 95 }
   },
   {
     id: "a9",
@@ -118,7 +118,7 @@ export const initialAssessments = [
     date: "2026-05-10",
     evaluator: "Coach Adrian",
     notes: "Seguimiento inicial por disciplina.",
-    scores: { respeto: 68, disciplina: 61, responsabilidad: 70, companierismo: 66, honestidad: 78 }
+    scores: { asistencia: 68, companierismo: 66, esfuerzo: 70, actitud: 61, respeto: 78 }
   },
   {
     id: "a10",
@@ -126,6 +126,6 @@ export const initialAssessments = [
     date: "2026-05-12",
     evaluator: "Coach Daniela",
     notes: "Primera evaluacion del grupo.",
-    scores: { respeto: 78, disciplina: 62, responsabilidad: 60, companierismo: 75, honestidad: 80 }
+    scores: { asistencia: 78, companierismo: 75, esfuerzo: 60, actitud: 62, respeto: 80 }
   }
 ];

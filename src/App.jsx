@@ -10,7 +10,7 @@ import { ValueTrend } from "./components/ValueTrend";
 import { initialAssessments, students, valuesCatalog } from "./data/demoData";
 import { average, buildLeaderboard, getLatestAssessment, getStudentAverage, trendForStudent, valueAverages } from "./utils/scoring";
 
-const STORAGE_KEY = "tomas-moro-values-v1";
+const STORAGE_KEY = "tomas-moro-values-v2";
 
 function readStorage() {
   try {
@@ -37,7 +37,9 @@ function loadAssessments() {
 
 function createDefaultScores(studentId, assessments) {
   const latest = getLatestAssessment(studentId, assessments);
-  return latest?.scores || Object.fromEntries(valuesCatalog.map((value) => [value.key, 75]));
+  const defaults = Object.fromEntries(valuesCatalog.map((value) => [value.key, 75]));
+  if (!latest?.scores) return defaults;
+  return Object.fromEntries(valuesCatalog.map((value) => [value.key, latest.scores[value.key] ?? defaults[value.key]]));
 }
 
 export default function App() {
