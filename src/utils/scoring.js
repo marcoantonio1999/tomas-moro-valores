@@ -1,4 +1,4 @@
-import { valuesCatalog } from "../data/demoData";
+import { valuesCatalog } from "../data/demoData.js";
 
 export function average(values) {
   const nums = Object.values(values || {}).map(Number);
@@ -9,6 +9,7 @@ export function average(values) {
 export function getLatestAssessment(studentId, assessments) {
   return assessments
     .filter((assessment) => assessment.studentId === studentId)
+    .reverse()
     .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
 }
 
@@ -35,8 +36,9 @@ export function buildLeaderboard(students, assessments) {
 }
 
 export function valueAverages(assessments) {
+  const latest = [...new Set(assessments.map(a => a.studentId))].map(id => getLatestAssessment(id, assessments));
   return valuesCatalog.map((value) => {
-    const scores = assessments.map((assessment) => Number(assessment.scores[value.key] || 0)).filter(Boolean);
+    const scores = latest.filter(a => a.scores[value.key] != null).map(a => Number(a.scores[value.key])).filter(Number.isFinite);
     const score = scores.length ? Math.round(scores.reduce((sum, item) => sum + item, 0) / scores.length) : 0;
     return { ...value, score };
   });

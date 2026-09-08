@@ -6,8 +6,8 @@ export function Leaderboard({ rows }) {
     <section className="rounded-3xl border border-moro-100 bg-white p-5 shadow-soft">
       <div className="flex items-center justify-between gap-3">
         <div>
-          <h2 className="text-xl font-black text-slate-950">Leaderboard de valores</h2>
-          <p className="text-sm text-slate-500">Ordenado por promedio de la evaluacion mas reciente.</p>
+          <h2 className="text-xl font-black text-slate-950">Desarrollo del grupo</h2>
+          <p className="text-sm text-slate-500">Ordenado por promedio de la evaluación más reciente.</p>
         </div>
         <Trophy className="h-6 w-6 text-amber-500" />
       </div>
@@ -29,3 +29,4 @@ export function Leaderboard({ rows }) {
     </section>
   );
 }
+

@@ -18,14 +18,14 @@ export function StudentList({ students, assessments, selectedId, onSelect, query
       </div>
       <label className="mt-4 flex items-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2">
         <Search className="h-4 w-4 text-slate-400" />
-        <input
+        <input aria-label="Buscar alumno"
           value={query}
           onChange={(event) => onQueryChange(event.target.value)}
           placeholder="Buscar alumno"
           className="w-full bg-transparent text-sm outline-none"
         />
       </label>
-      <select
+      <select aria-label="Filtrar por grupo"
         value={group}
         onChange={(event) => onGroupChange(event.target.value)}
         className="mt-3 w-full rounded-2xl border border-slate-200 bg-white px-3 py-3 text-sm font-semibold outline-none focus:border-moro-500"
@@ -35,14 +35,14 @@ export function StudentList({ students, assessments, selectedId, onSelect, query
         ))}
       </select>
       <div className="mt-4 space-y-2">
-        {visibleStudents.map((student) => {
+        {visibleStudents.length === 0 && <p className="text-sm text-slate-500 p-3">No hay alumnos que coincidan con la búsqueda.</p>}{visibleStudents.map((student) => {
           const score = getStudentAverage(student.id, assessments);
           const status = statusForScore(score);
           const active = student.id === selectedId;
           return (
             <button
               key={student.id}
-              type="button"
+              type="button" aria-pressed={active}
               onClick={() => onSelect(student.id)}
               className={`flex w-full items-center gap-3 rounded-2xl border p-3 text-left transition ${
                 active ? "border-moro-600 bg-moro-50" : "border-transparent hover:border-moro-100 hover:bg-slate-50"
@@ -63,3 +63,4 @@ export function StudentList({ students, assessments, selectedId, onSelect, query
     </aside>
   );
 }
+

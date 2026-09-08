@@ -28,8 +28,8 @@ export function ValueTrend({ trend }) {
         })}
       </svg>
       <div className="mt-3 flex flex-wrap gap-2">
-        {trend.map((item) => (
-          <span key={item.date} className="rounded-full bg-moro-50 px-3 py-1 text-xs font-bold text-moro-800">
+        {trend.map((item, index) => (
+          <span key={`${item.date}-${index}`} className="rounded-full bg-moro-50 px-3 py-1 text-xs font-bold text-moro-800">
             {item.date}: {item.score}
           </span>
         ))}
@@ -37,3 +37,4 @@ export function ValueTrend({ trend }) {
     </section>
   );
 }
+
