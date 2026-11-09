@@ -1,38 +1,38 @@
 export const valuesCatalog = [
   {
-    key: "asistencia",
-    label: "Asistencia",
-    short: "ASI",
+    key: "fraternidad",
+    label: "Fraternidad",
+    short: "FRA",
     fontClass: "font-respect",
-    description: "Constancia para llegar, participar y mantenerse presente en las actividades del colegio."
+    description: "Acoge e incluye a sus compañeros, ofrece ayuda y colabora por el bien del grupo."
   },
   {
-    key: "companierismo",
-    label: "Compañerismo",
-    short: "COM",
+    key: "alegria",
+    label: "Alegría",
+    short: "ALE",
     fontClass: "font-fellowship",
-    description: "Ayuda al grupo, integra a otros y entiende que crecer tambien es colaborar."
+    description: "Participa con entusiasmo y comparte una actitud positiva, sin burlarse ni excluir a otros."
   },
   {
-    key: "esfuerzo",
-    label: "Esfuerzo",
-    short: "ESF",
+    key: "esfuerzo_perseverancia_superacion",
+    label: "Esfuerzo, perseverancia y superación",
+    short: "EPS",
     fontClass: "font-responsibility",
-    description: "Da lo mejor de si, intenta mejorar y sostiene el trabajo aunque el reto sea dificil."
+    description: "Da lo mejor de sí, persevera ante las dificultades y aprende de sus errores para superarse."
   },
   {
-    key: "actitud",
-    label: "Actitud",
-    short: "ACT",
+    key: "sencillez",
+    label: "Sencillez",
+    short: "SEN",
     fontClass: "font-discipline",
-    description: "Muestra disposicion positiva, apertura a corregir y energia constructiva."
+    description: "Reconoce sus logros sin presumir, acepta orientación y valora las aportaciones de los demás."
   },
   {
-    key: "respeto",
-    label: "Respeto",
-    short: "RES",
+    key: "respeto_juego_limpio",
+    label: "Respeto y juego limpio",
+    short: "RJL",
     fontClass: "font-honesty",
-    description: "Escucha, cuida el lenguaje y trata bien a compañeros, maestros y rivales."
+    description: "Trata con respeto a compañeros, maestros y rivales; cumple las reglas y actúa con honestidad al ganar o perder."
   }
 ];
 
@@ -54,7 +54,7 @@ export const initialAssessments = [
     date: "2026-06-03",
     evaluator: "Coach Adrian",
     notes: "Buena disposicion para escuchar y corregir.",
-    scores: { asistencia: 92, companierismo: 94, esfuerzo: 88, actitud: 86, respeto: 90 }
+scores: { fraternidad: 92, alegria: 94, esfuerzo_perseverancia_superacion: 88, sencillez: 86, respeto_juego_limpio: 90 }
   },
   {
     id: "a2",
@@ -62,7 +62,7 @@ export const initialAssessments = [
     date: "2026-06-03",
     evaluator: "Coach Adrian",
     notes: "Necesita controlar frustracion cuando pierde el balon.",
-    scores: { asistencia: 72, companierismo: 70, esfuerzo: 74, actitud: 68, respeto: 82 }
+    scores: { fraternidad: 72, alegria: 70, esfuerzo_perseverancia_superacion: 74, sencillez: 68, respeto_juego_limpio: 82 }
   },
   {
     id: "a3",
@@ -70,7 +70,7 @@ export const initialAssessments = [
     date: "2026-06-03",
     evaluator: "Coach Adrian",
     notes: "Gran actitud de apoyo con ninas nuevas.",
-    scores: { asistencia: 89, companierismo: 96, esfuerzo: 87, actitud: 84, respeto: 91 }
+    scores: { fraternidad: 89, alegria: 96, esfuerzo_perseverancia_superacion: 87, sencillez: 84, respeto_juego_limpio: 91 }
   },
   {
     id: "a4",
@@ -78,7 +78,7 @@ export const initialAssessments = [
     date: "2026-06-05",
     evaluator: "Coach Daniela",
     notes: "Se distrae en ejercicios largos, pero responde bien al seguimiento.",
-    scores: { asistencia: 78, companierismo: 82, esfuerzo: 76, actitud: 71, respeto: 80 }
+    scores: { fraternidad: 78, alegria: 82, esfuerzo_perseverancia_superacion: 76, sencillez: 71, respeto_juego_limpio: 80 }
   },
   {
     id: "a5",
@@ -86,7 +86,7 @@ export const initialAssessments = [
     date: "2026-06-05",
     evaluator: "Coach Daniela",
     notes: "Lider positivo en calentamiento y orden del grupo.",
-    scores: { asistencia: 90, companierismo: 87, esfuerzo: 91, actitud: 93, respeto: 88 }
+    scores: { fraternidad: 90, alegria: 87, esfuerzo_perseverancia_superacion: 91, sencillez: 93, respeto_juego_limpio: 88 }
   },
   {
     id: "a6",
@@ -94,7 +94,7 @@ export const initialAssessments = [
     date: "2026-06-05",
     evaluator: "Coach Daniela",
     notes: "Debe mejorar puntualidad y cuidado de material.",
-    scores: { asistencia: 81, companierismo: 79, esfuerzo: 63, actitud: 66, respeto: 84 }
+    scores: { fraternidad: 81, alegria: 79, esfuerzo_perseverancia_superacion: 63, sencillez: 66, respeto_juego_limpio: 84 }
   },
   {
     id: "a7",
@@ -102,7 +102,7 @@ export const initialAssessments = [
     date: "2026-06-07",
     evaluator: "Coach Raul",
     notes: "Competitivo y honesto, puede mejorar trato al rival.",
-    scores: { asistencia: 69, companierismo: 72, esfuerzo: 86, actitud: 84, respeto: 90 }
+    scores: { fraternidad: 69, alegria: 72, esfuerzo_perseverancia_superacion: 86, sencillez: 84, respeto_juego_limpio: 90 }
   },
   {
     id: "a8",
@@ -110,7 +110,7 @@ export const initialAssessments = [
     date: "2026-06-07",
     evaluator: "Coach Raul",
     notes: "Muy constante, ayuda a ordenar al equipo.",
-    scores: { asistencia: 94, companierismo: 91, esfuerzo: 92, actitud: 90, respeto: 95 }
+    scores: { fraternidad: 94, alegria: 91, esfuerzo_perseverancia_superacion: 92, sencillez: 90, respeto_juego_limpio: 95 }
   },
   {
     id: "a9",
@@ -118,7 +118,7 @@ export const initialAssessments = [
     date: "2026-05-10",
     evaluator: "Coach Adrian",
     notes: "Seguimiento inicial por disciplina.",
-    scores: { asistencia: 68, companierismo: 66, esfuerzo: 70, actitud: 61, respeto: 78 }
+    scores: { fraternidad: 68, alegria: 66, esfuerzo_perseverancia_superacion: 70, sencillez: 61, respeto_juego_limpio: 78 }
   },
   {
     id: "a10",
@@ -126,6 +126,6 @@ export const initialAssessments = [
     date: "2026-05-12",
     evaluator: "Coach Daniela",
     notes: "Primera evaluacion del grupo.",
-    scores: { asistencia: 78, companierismo: 75, esfuerzo: 60, actitud: 62, respeto: 80 }
+    scores: { fraternidad: 78, alegria: 75, esfuerzo_perseverancia_superacion: 60, sencillez: 62, respeto_juego_limpio: 80 }
   }
 ];

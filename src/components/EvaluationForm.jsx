@@ -23,11 +23,11 @@ export function EvaluationForm({ student, scores, setScores, notes, setNotes, on
         {valuesCatalog.map((value) => (
           <div key={value.key} className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
             <div className="flex items-start justify-between gap-4">
-              <div>
+              <div className="min-w-0">
                 <p className={`text-lg font-black text-slate-950 ${value.fontClass}`}>{value.label}</p>
                 <p className="mt-1 max-w-2xl text-sm text-slate-500">{value.description}</p>
               </div>
-              <span className="rounded-2xl bg-white px-3 py-2 text-lg font-black text-moro-800 shadow-sm">
+              <span className="shrink-0 rounded-2xl bg-white px-3 py-2 text-lg font-black text-moro-800 shadow-sm">
                 {scores[value.key]}
               </span>
             </div>
@@ -38,7 +38,7 @@ export function EvaluationForm({ student, scores, setScores, notes, setNotes, on
               max="100"
               value={scores[value.key]}
               onChange={(event) => setScores((current) => ({ ...current, [value.key]: Number(event.target.value) }))}
-              className="score-slider mt-4 w-full"
+              className="score-slider mt-4 min-h-11 w-full"
             />
           </div>
         ))}

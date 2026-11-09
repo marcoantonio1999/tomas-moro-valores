@@ -7,8 +7,9 @@ import { RadarValues } from './components/RadarValues';
 import { ValueTrend } from './components/ValueTrend';
 import { initialAssessments, students, valuesCatalog } from './data/demoData';
 import { buildLeaderboard, getLatestAssessment, getStudentAverage, trendForStudent, valueAverages } from './utils/scoring';
-const KEY = 'tomas-moro-values-v2';
-function load() { try { const data = JSON.parse(localStorage.getItem(KEY)); return Array.isArray(data) && data.every(a => a.studentId && a.scores && a.date) ? data : initialAssessments; } catch { return initialAssessments; } }
+// Keep previous-rubric scores intact; they are not equivalent to the new criteria.
+const KEY = 'tomas-moro-values-v3';
+function load() { try { const data = JSON.parse(localStorage.getItem(KEY)); return Array.isArray(data) && data.every(a => a && a.studentId && a.date && a.scores && valuesCatalog.every(({key}) => typeof a.scores[key] === 'number' && Number.isFinite(a.scores[key]) && a.scores[key] >= 0 && a.scores[key] <= 100)) ? data : initialAssessments; } catch { return initialAssessments; } }
 function defaults(id, assessments) { const latest = getLatestAssessment(id, assessments); return Object.fromEntries(valuesCatalog.map(v => [v.key, latest?.scores[v.key] ?? 75])); }
 export default function App() {
   const [assessments,setAssessments] = useState(load);

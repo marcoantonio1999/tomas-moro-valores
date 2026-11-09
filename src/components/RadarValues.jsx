@@ -16,7 +16,7 @@ export function RadarValues({ scores }) {
       <h2 className="text-xl font-black text-slate-950">Radar de valores</h2>
       <p className="text-sm text-slate-500">Lectura rapida del equilibrio formativo.</p>
       <div className="mt-4 flex justify-center">
-        <svg viewBox="0 0 220 220" className="h-64 w-full max-w-sm">
+        <svg viewBox="-5 -5 230 230" className="h-64 w-full max-w-sm" role="img" aria-label="Radar de los cinco valores del Tomás Moro">
           <polygon points={outer} fill="#f8fafc" stroke="#d1fae5" strokeWidth="2" />
           <polygon points={mid} fill="none" stroke="#bbf7d0" strokeDasharray="4 4" />
           {valuesCatalog.map((value, index) => {
@@ -26,7 +26,7 @@ export function RadarValues({ scores }) {
               <g key={value.key}>
                 <line x1="110" y1="110" x2={lineX} y2={lineY} stroke="#dcfce7" />
                 <text x={x} y={y} textAnchor="middle" dominantBaseline="middle" className="fill-slate-600 text-[10px] font-black">
-                  {value.short}
+                  <title>{value.label}</title>{value.short}
                 </text>
               </g>
             );
@@ -38,6 +38,9 @@ export function RadarValues({ scores }) {
           })}
         </svg>
       </div>
+      <ul className="mt-3 grid gap-2 text-sm text-slate-600">
+        {valuesCatalog.map((value) => <li key={value.key}><strong>{value.short}</strong> · {value.label}</li>)}
+      </ul>
     </section>
   );
 }

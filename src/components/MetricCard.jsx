@@ -7,9 +7,9 @@ export function MetricCard({ label, value, detail, tone = "green" }) {
   };
 
   return (
-    <section className={`rounded-3xl border p-5 shadow-soft ${tones[tone]}`}>
+    <section className={`min-w-0 rounded-3xl border p-5 shadow-soft ${tones[tone]}`}>
       <p className="text-xs font-bold uppercase tracking-[0.16em] opacity-70">{label}</p>
-      <p className="mt-3 text-3xl font-black">{value}</p>
+      <p className="mt-3 break-words text-3xl font-black">{value}</p>
       {detail ? <p className="mt-2 text-sm opacity-70">{detail}</p> : null}
     </section>
   );
