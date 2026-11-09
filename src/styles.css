@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.school-shield{display:block;width:42px;height:auto;aspect-ratio:98/116;flex-shrink:0;overflow:hidden;clip-path:polygon(50% 0%,100% 22%,96% 60%,80% 83%,50% 100%,20% 83%,4% 60%,0% 22%)}
+.school-shield{display:block;width:48px;height:auto;flex-shrink:0;object-fit:contain}
 .mascot-figure{margin:0 30px 0 24px;display:flex;align-items:center;gap:28px;flex-shrink:0}
 .mascot-art{display:block;width:255px;height:auto;object-fit:contain}
 .mascot-figure figcaption{display:flex;flex-direction:column;align-items:center;gap:12px}

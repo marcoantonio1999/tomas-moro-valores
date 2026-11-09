@@ -17,6 +17,14 @@ try {
   await mascot.waitFor();
   await page.waitForFunction(() => document.querySelector('.mascot-art')?.naturalWidth > 0);
   assert.equal(await page.getByRole('img', { name: 'Escudo del Colegio Franco Inglés', exact: true }).count(), 1);
+  await page.waitForFunction(() => [...document.querySelectorAll('.school-shield')].every(el => el.tagName === 'IMG' && el.complete && el.naturalWidth > 0));
+  assert.equal(await page.locator('.school-shield').first().evaluate(el => getComputedStyle(el).clipPath), 'none');
+  assert((await page.locator('.school-shield').first().getAttribute('src')).endsWith('/escudo-colegio-transparente.png'));
+  assert(await page.locator('.school-shield').first().evaluate(el => {
+    const canvas = document.createElement('canvas'); canvas.width = el.naturalWidth; canvas.height = el.naturalHeight;
+    const ctx = canvas.getContext('2d'); ctx.drawImage(el, 0, 0);
+    return el.naturalWidth > 1000 && [[0,0],[canvas.width-1,0],[0,canvas.height-1],[canvas.width-1,canvas.height-1]].every(([x,y]) => ctx.getImageData(x,y,1,1).data[3] === 0);
+  }));
   await page.getByRole('tab', { name: 'Nueva evaluación' }).click();
   for (const value of valuesCatalog) await page.getByRole('slider', { name: value.label, exact: true }).waitFor();
   assert.equal(await page.getByRole('slider').count(), 5);
@@ -48,6 +56,7 @@ try {
     await page.screenshot({ path: `test-results/overview-${width}.png`, fullPage: true });
     await page.getByRole('tab', { name: 'Nueva evaluación' }).click();
     assert.equal(await page.locator('.school-shield').count(), 3);
+    await page.locator('.evaluation-identity').screenshot({ path: `test-results/shield-${width}.png` });
     await page.getByRole('slider', { name: 'Sencillez', exact: true }).scrollIntoViewIfNeeded();
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `Page overflow at ${width}`);
     for (const input of await page.getByRole('slider').all()) assert((await input.boundingBox()).height >= 44);

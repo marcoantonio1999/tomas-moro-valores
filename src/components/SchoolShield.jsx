@@ -1,16 +1,13 @@
-// Display the actual chest emblem from the supplied artwork, not an AI redraw.
-// Keep the source intact: this viewport and clip only affect its presentation.
+// Standalone transparent restoration of the supplied chest emblem.
+// Do not crop it with CSS: the complete outline must remain visible.
 export function SchoolShield({ className = '', decorative = false }) {
   return (
-    <svg
+    <img
       className={`school-shield ${className}`}
-      viewBox="216 212 98 116"
-      role={decorative ? undefined : 'img'}
-      aria-label={decorative ? undefined : 'Escudo del Colegio Franco Inglés'}
+      src={`${import.meta.env.BASE_URL}escudo-colegio-transparente.png`}
+      alt={decorative ? '' : 'Escudo del Colegio Franco Inglés'}
       aria-hidden={decorative ? true : undefined}
-      focusable="false"
-    >
-      <image href={`${import.meta.env.BASE_URL}canguro-colegio.png`} x="0" y="0" width="500" height="665" />
-    </svg>
+      decoding="async"
+    />
   );
 }
