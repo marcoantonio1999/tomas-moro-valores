@@ -5,7 +5,6 @@ import { EvaluationForm } from './components/EvaluationForm';
 import { Leaderboard } from './components/Leaderboard';
 import { RadarValues } from './components/RadarValues';
 import { ValueTrend } from './components/ValueTrend';
-import { SchoolShield } from './components/SchoolShield';
 import { initialAssessments, students, valuesCatalog } from './data/demoData';
 import { buildLeaderboard, getLatestAssessment, getStudentAverage, trendForStudent, valueAverages } from './utils/scoring';
 // Keep previous-rubric scores intact; they are not equivalent to the new criteria.
@@ -32,13 +31,7 @@ export default function App() {
   return <div className="moro-app">
     <header className="moro-header"><a className="moro-brand" href="#"><img src="./logo-tomas-moro.png" alt="Escudo Tomás Moro"/><span>Tomás Moro<small>FORMACIÓN EN VALORES</small></span></a><span className="header-caption">Crecer como equipo. Formarse como personas.</span><span className="demo-pill"><i/> Demo interactiva</span></header>
     <main className="moro-main">
-      <section className="moro-intro">
-        <div className="intro-copy"><p className="kicker">EL CRECIMIENTO QUE IMPORTA</p><h1>Cada valor <em>cuenta.</em></h1><p>Una mirada al desarrollo de cada alumno.<br/>Para acompañar hoy lo que será mañana.</p></div>
-        <figure className="mascot-figure">
-          <img className="mascot-art" src={`${import.meta.env.BASE_URL}canguro-colegio.png`} width="500" height="665" alt="Canguro con su cría y el uniforme del Colegio Franco Inglés" fetchPriority="high" />
-          <figcaption><SchoolShield /><span>FORMAR<br/>PARA LA VIDA</span></figcaption>
-        </figure>
-      </section>
+      <section className="moro-intro"><div><p className="kicker">EL CRECIMIENTO QUE IMPORTA</p><h1>Cada valor <em>cuenta.</em></h1><p>Una mirada al desarrollo de cada alumno.<br/>Para acompañar hoy lo que será mañana.</p></div><div className="intro-seal" aria-hidden="true"><Leaf size={30} strokeWidth={1.3}/><span>FORMAR<br/>PARA LA VIDA</span></div></section>
       <div className="metrics-strip">
         <div><span><TrendingUp size={15}/> Promedio general</span><strong>{mean}<small>/100</small></strong><p>Última evaluación por alumno</p></div>
         <div><span><Users size={15}/> Alumnos</span><strong>{students.length.toString().padStart(2,'0')}</strong><p>Tres grupos, un mismo propósito</p></div>
@@ -50,7 +43,7 @@ export default function App() {
           <div className="workspace-nav" role="tablist" aria-label="Seguimiento del alumno"><button role="tab" aria-selected={tab==='overview'} onClick={()=>setTab('overview')}>Resumen del alumno</button><button role="tab" aria-selected={tab==='evaluation'} onClick={()=>setTab('evaluation')}>Nueva evaluación <span>+</span></button></div>
           {tab==='overview' ? <div role="tabpanel" aria-label="Resumen del alumno"><div className="charts-grid"><RadarValues scores={defaults(selectedId,assessments)}/><ValueTrend trend={trendForStudent(selectedId,assessments)}/></div><div className="group-grid"><section className="values-card"><p className="kicker">UNA VISIÓN COMPARTIDA</p><h2>El pulso del grupo.</h2><p className="muted-copy">Promedios de la última evaluación de cada alumno.</p><div className="value-bars">{values.map(v=><div key={v.key}><div><span>{v.label}</span><strong>{v.score}<small>/100</small></strong></div><div className="value-track"><i style={{width:v.score+'%'}}/></div></div>)}</div></section><Leaderboard rows={rows}/></div></div> : <div role="tabpanel" aria-label="Nueva evaluación">{saved&&<p className="save-feedback" role="status"><Check size={18}/> Evaluación guardada en este navegador. El resumen ya está actualizado.</p>}<EvaluationForm student={student} scores={scores} setScores={fn=>{setScores(fn);setSaved(false);}} notes={notes} setNotes={setNotes} onSave={save}/></div>}
         </div></div>
-      <footer className="moro-footer"><span className="footer-identity"><SchoolShield decorative />Tomás Moro <b>·</b> El valor de acompañar.</span><span>Demo con datos ficticios. Los cambios se guardan en este navegador.</span><span>Diseño y tecnología por <strong>FTS</strong></span></footer>
+      <footer className="moro-footer"><span>Tomás Moro <b>·</b> El valor de acompañar.</span><span>Demo con datos ficticios. Los cambios se guardan en este navegador.</span><span>Diseño y tecnología por <strong>FTS</strong></span></footer>
     </main></div>;
 }
 
