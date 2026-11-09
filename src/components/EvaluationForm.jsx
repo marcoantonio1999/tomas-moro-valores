@@ -1,14 +1,20 @@
 import { Save } from "lucide-react";
 import { valuesCatalog } from "../data/demoData";
+import { SchoolShield } from "./SchoolShield";
 
 export function EvaluationForm({ student, scores, setScores, notes, setNotes, onSave }) {
   return (
     <section className="rounded-3xl border border-moro-100 bg-white p-5 shadow-soft">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-moro-700">Nueva evaluacion</p>
-          <h2 className="text-2xl font-black text-slate-950">{student.name}</h2>
-          <p className="text-sm text-slate-500">{student.group} - {student.grade}</p>
+          <div className="evaluation-identity">
+            <SchoolShield decorative />
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-moro-700">Nueva evaluacion</p>
+              <h2 className="text-2xl font-black text-slate-950">{student.name}</h2>
+              <p className="text-sm text-slate-500">{student.group} - {student.grade}</p>
+            </div>
+          </div>
         </div>
         <button
           type="button"

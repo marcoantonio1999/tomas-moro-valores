@@ -13,6 +13,10 @@ await page.addInitScript(legacy => localStorage.setItem('tomas-moro-values-v2', 
 await mkdir('test-results', { recursive: true });
 try {
   await page.goto(base);
+  const mascot = page.getByRole('img', { name: 'Canguro con su cría y el uniforme del Colegio Franco Inglés', exact: true });
+  await mascot.waitFor();
+  await page.waitForFunction(() => document.querySelector('.mascot-art')?.naturalWidth > 0);
+  assert.equal(await page.getByRole('img', { name: 'Escudo del Colegio Franco Inglés', exact: true }).count(), 1);
   await page.getByRole('tab', { name: 'Nueva evaluación' }).click();
   for (const value of valuesCatalog) await page.getByRole('slider', { name: value.label, exact: true }).waitFor();
   assert.equal(await page.getByRole('slider').count(), 5);
@@ -37,9 +41,13 @@ try {
   for (const width of [320, 390, 1440]) {
     await page.setViewportSize({ width, height: 950 });
     await page.getByRole('tab', { name: 'Resumen del alumno' }).click();
+    await page.evaluate(() => window.scrollTo(0, 0));
+    assert((await mascot.boundingBox()).width >= 200);
+    await page.screenshot({ path: `test-results/welcome-${width}.png` });
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `Overview overflow at ${width}`);
     await page.screenshot({ path: `test-results/overview-${width}.png`, fullPage: true });
     await page.getByRole('tab', { name: 'Nueva evaluación' }).click();
+    assert.equal(await page.locator('.school-shield').count(), 3);
     await page.getByRole('slider', { name: 'Sencillez', exact: true }).scrollIntoViewIfNeeded();
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `Page overflow at ${width}`);
     for (const input of await page.getByRole('slider').all()) assert((await input.boundingBox()).height >= 44);
